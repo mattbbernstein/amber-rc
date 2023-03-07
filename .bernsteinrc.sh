@@ -7,7 +7,7 @@ alias ls='ls -F --color=tty --show-control-chars'
 alias ll='ls -alH'
 
 # RC change reloading
-alias vimrc='vim ~/.bernstein.rc'
+alias vimrc='vim ~/.bernsteinrc.sh'
 alias reload='source ~/.bashrc'
 
 # Prompt stuff
