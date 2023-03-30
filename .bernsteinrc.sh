@@ -29,3 +29,5 @@ fi
 if [ ! -f "$HOME/.hushlogin" ]; then
   touch $HOME/.hushlogin
 fi
+
+source /usr/share/bash-completion/completions/git
