@@ -1,13 +1,17 @@
 # set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+LOCAL_BIN="${HOME}/.local/bin"
+if [ -d "${LOCAL_BIN}" ] && [[ ":$PATH:" != *":${LOCAL_BIN}:"* ]]; then
+    PATH="${LOCAL_BIN}:${PATH}"
 fi
+
+PERSONAL_RC_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+PERSONAL_RC="${PERSONAL_RC_DIR}/.bernsteinrc.sh"
 
 alias ls='ls -F --color=tty --show-control-chars'
 alias ll='ls -alH'
 
 # RC change reloading
-alias vimrc='vim ~/.bernsteinrc.sh'
+alias vimrc='vim ${PERSONAL_RC}'
 alias reload='source ~/.bashrc'
 
 # Prompt stuff
