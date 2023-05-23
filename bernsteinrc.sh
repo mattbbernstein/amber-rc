@@ -4,8 +4,9 @@ if [ -d "${LOCAL_BIN}" ] && echo ${PATH} | egrep -q "(^|:)${LOCAL_BIN}(:|$)"; th
     PATH="${LOCAL_BIN}:${PATH}"
 fi
 
-PERSONAL_RC_DIR=$( dirname -- "$( readlink -f -- "$BASH_SOURCE[0]"; )"; )
-PERSONAL_RC="${PERSONAL_RC_DIR}/bernsteinrc.sh"
+PERSONAL_RC_DIR=$( dirname -- "$( readlink -f -- "$BASH_SOURCE"; )"; )
+PERSONAL_RC_SCRIPT=$( basename -- "$( readlink -f -- "$BASH_SOURCE"; )"; )
+PERSONAL_RC="${PERSONAL_RC_DIR}/${PERSONAL_RC_SCRIPT}"
 
 alias ls='ls -F --color=tty --show-control-chars'
 alias ll='ls -alH'
