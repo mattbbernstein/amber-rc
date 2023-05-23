@@ -5,7 +5,7 @@ if [ -d "${LOCAL_BIN}" ] && echo ${PATH} | egrep -q "(^|:)${LOCAL_BIN}(:|$)"; th
 fi
 
 PERSONAL_RC_DIR=$( dirname -- "$( readlink -f -- "$BASH_SOURCE[0]"; )"; )
-PERSONAL_RC="${PERSONAL_RC_DIR}/.bernsteinrc.sh"
+PERSONAL_RC="${PERSONAL_RC_DIR}/bernsteinrc.sh"
 
 alias ls='ls -F --color=tty --show-control-chars'
 alias ll='ls -alH'
