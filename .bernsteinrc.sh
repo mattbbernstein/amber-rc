@@ -1,10 +1,10 @@
 # set PATH so it includes user's private bin if it exists
 LOCAL_BIN="${HOME}/.local/bin"
-if [ -d "${LOCAL_BIN}" ] && [[ ":$PATH:" != *":${LOCAL_BIN}:"* ]]; then
+if [ -d "${LOCAL_BIN}" ] && echo ${PATH} | egrep -q "(^|:)${LOCAL_BIN}(:|$)"; then
     PATH="${LOCAL_BIN}:${PATH}"
 fi
 
-PERSONAL_RC_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+PERSONAL_RC_DIR=$( dirname -- "$( readlink -f -- "$BASH_SOURCE[0]"; )"; )
 PERSONAL_RC="${PERSONAL_RC_DIR}/.bernsteinrc.sh"
 
 alias ls='ls -F --color=tty --show-control-chars'
