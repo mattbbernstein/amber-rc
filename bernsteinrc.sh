@@ -1,6 +1,6 @@
 # set PATH so it includes user's private bin if it exists
 LOCAL_BIN="${HOME}/.local/bin"
-if [ -d "${LOCAL_BIN}" ] && echo ${PATH} | egrep -q "(^|:)${LOCAL_BIN}(:|$)"; then
+if [ -d "${LOCAL_BIN}" ]; then
     PATH="${LOCAL_BIN}:${PATH}"
 fi
 
