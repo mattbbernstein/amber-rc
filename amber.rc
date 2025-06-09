@@ -8,7 +8,7 @@ PERSONAL_RC_DIR=$( dirname -- "$( readlink -f -- "$BASH_SOURCE"; )"; )
 PERSONAL_RC_SCRIPT=$( basename -- "$( readlink -f -- "$BASH_SOURCE"; )"; )
 PERSONAL_RC="${PERSONAL_RC_DIR}/${PERSONAL_RC_SCRIPT}"
 
-alias ls='ls -F --color=tty --show-control-chars'
+alias ls='ls -F --color=tty'
 alias ll='ls -alH'
 
 # RC change reloading
@@ -35,4 +35,8 @@ if [ ! -f "$HOME/.hushlogin" ]; then
   touch $HOME/.hushlogin
 fi
 
-source /usr/share/bash-completion/completions/git
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion || {
+    # if not found in /usr/local/etc, try the brew --prefix location
+    [ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ] && \
+        . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
+}
