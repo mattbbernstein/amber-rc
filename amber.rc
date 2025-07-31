@@ -4,6 +4,14 @@ if [ -d "${LOCAL_BIN}" ]; then
     PATH="${LOCAL_BIN}:${PATH}"
 fi
 
+if [ -f "${HOME}/.bash_aliases" ]; then
+    source ${HOME}/.bash_aliases
+fi
+
+if [ -f "${HOME}/.bash_functions" ]; then
+    source ${HOME}/.bash_functions
+fi
+
 PERSONAL_RC_DIR=$( dirname -- "$( readlink -f -- "$BASH_SOURCE"; )"; )
 PERSONAL_RC_SCRIPT=$( basename -- "$( readlink -f -- "$BASH_SOURCE"; )"; )
 PERSONAL_RC="${PERSONAL_RC_DIR}/${PERSONAL_RC_SCRIPT}"
@@ -40,3 +48,17 @@ fi
     [ -f "$(brew --prefix)/etc/bash_completion.d/git-completion.bash" ] && \
         . $(brew --prefix)/etc/bash_completion.d/git-completion.bash
 }
+
+# Android/Flock Set up
+export GROOVY_HOME=/opt/homebrew/opt/groovy/libexec
+
+jdk 17
+
+ANDROID_HOME="/Users/matt.bernstein/Library/Android/sdk"
+PATH="${ANDROID_HOME}:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}"
+
+# Set up pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:$PATH"
+
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
