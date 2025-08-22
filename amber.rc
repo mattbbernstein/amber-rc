@@ -51,14 +51,14 @@ fi
 
 # Android/Flock Set up
 export GROOVY_HOME=/opt/homebrew/opt/groovy/libexec
-
 jdk 17
-
 ANDROID_HOME="/Users/matt.bernstein/Library/Android/sdk"
-PATH="${ANDROID_HOME}:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools:${PATH}"
+export PATH="${PATH}:${ANDROID_HOME}:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools"
 
 # Set up pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:$PATH"
-
+export PATH="${PATH}:${PYENV_ROOT}/shims"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# Add Code to path on MacOS
+export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
