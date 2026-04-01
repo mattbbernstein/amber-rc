@@ -22,12 +22,9 @@ parse_git_branch() {
 export PROMPT_DIRTRIM=3
 PS1='\[\e[0;96m\]\u: \[\e[0;93m\]\w \[\e[0;92m\]$(parse_git_branch)\n\[\e[0m\]$ '
 
-# Create .inputrc if it doesn't exists
-if [ ! -f "$HOME/.inputrc" ]; then
-  cat << EOF > ~/.inputrc
-# Ignore case while completing
-set completion-ignore-case on
-EOF
+# source .inputrc if it exists
+if [ -f "$PERSONAL_RC_DIR/.inputrc" ]; then
+  . $PERSONAL_RC_DIR/.inputrc
 fi
 
 # Create .hushlogin file if it doesn't exist

@@ -1,2 +1,5 @@
 # Ignore case while completing
 set completion-ignore-case on
+
+# No bell
+set bell-style none
