@@ -51,11 +51,6 @@ jdk 17
 ANDROID_HOME="/Users/matt.bernstein/Library/Android/sdk"
 export PATH="${PATH}:${ANDROID_HOME}:${ANDROID_HOME}/cmdline-tools/latest/bin:${ANDROID_HOME}/platform-tools"
 
-# Set up pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="${PATH}:${PYENV_ROOT}/shims"
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
 # Add Code to path on MacOS
 export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
@@ -65,3 +60,6 @@ export AWS_REGION=us-east-1
 
 # Docker Setup
 export PATH="${PATH}:${HOME}/.docker/bin"
+
+# Set Python3 as default python
+alias python='python3'
